@@ -1,0 +1,9 @@
+.container-div {
+    width: 1000px;
+    display: grid;
+    grid-template-columns: 1fr 900px 1fr;
+}
+
+.arrow {
+    width: 100px;
+}
