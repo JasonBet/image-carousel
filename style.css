@@ -23,6 +23,25 @@
 
 .div-dots {
     grid-area: dots;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.dot {
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    background-color: red;
+}
+
+.dot:hover {
+    cursor: pointer;
+}
+
+.current-dot {
+    background-color: blue;
 }
 
 .arrow {
