@@ -1,9 +1,40 @@
 .container-div {
     width: 1000px;
+    height: 800px;
     display: grid;
     grid-template-columns: 1fr 900px 1fr;
+    grid-template-rows: 700px 100px;
+    grid-template-areas: 
+    'left slide right'
+    '. dots .';
+}
+
+.left {
+    grid-area: left;
+}
+
+.right {
+    grid-area: right;
+}
+
+.slide {
+    grid-area: slide;
+}
+
+.div-dots {
+    grid-area: dots;
 }
 
 .arrow {
     width: 100px;
+    align-self: center;
+}
+
+.arrow:hover {
+    cursor: pointer;
+}
+
+.image {
+    width: 100%;
+    display: none;
 }
