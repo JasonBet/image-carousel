@@ -51,14 +51,44 @@ slide.appendChild(img5);
 let imageIndex = -1;
 const totalImages = 5;
 let images = document.getElementsByTagName("img");
+let slideTimeout;
+let initial = 0;
 showSlide();
 function showSlide() {
-    if(imageIndex >= 0) {
+    if(initial > 0) {
         images[imageIndex].style.display = "none";
     }
     if(imageIndex >= (totalImages -1)) {
         imageIndex = 0;
     } else {imageIndex++;}
+
+    if(imageIndex === -1) {imageIndex = 4;}
+    if(imageIndex === -2) {imageIndex = 3;}
     images[imageIndex].style.display = "block";
-    setTimeout(showSlide, 5000);
+    initial++;
+    slideTimeout = setTimeout(showSlide, 5000);
 }
+
+function showPrevSlide() {
+    if(initial > 0) {
+        images[imageIndex].style.display = "none";
+    }
+    
+    imageIndex--;
+
+    if(imageIndex === -1) {imageIndex = 4;}
+    if(imageIndex === -2) {imageIndex = 3;}
+    images[imageIndex].style.display = "block";
+    initial++;
+    slideTimeout = setTimeout(showSlide, 5000);
+}
+
+rightArrow.addEventListener("click", () => {
+    clearTimeout(slideTimeout);
+    showSlide();
+});
+
+leftArrow.addEventListener("click", () => {
+    clearTimeout(slideTimeout);
+    showPrevSlide();
+});
